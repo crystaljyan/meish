@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta name="renderer" content="webkit">
+	<title>index</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link href="">
+	<link rel="stylesheet" href="weui/lib/weui.min.css" />
+	<link rel="stylesheet" href="weui/css/jquery-weui.min.css" />
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="weui/lib/jquery-2.1.4.js"></script>
+	<!--[if lt IE 9 ]>
+	<script src="js/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+<section class="wrap">
+	<section class="main">
+		<div class="food-dis pic-view">
+			<img src="images/food-cook.jpg" alt="" class="imgm"/>
+		</div>
+		
+		<!--下拉-->
+		<div class="filter-wrap">
+			<div class="table fs13 filter-nav nav-menu scroll-tab">
+				<a href="javascript:;" class="table-cell fn-open fn-down"><span>广州深圳</span></a>
+				<a href="javascript:;" class="table-cell scr-item"><span>近期营期</span></a>
+				<a href="javascript:;" class="table-cell scr-item"><span>课程介绍</span></a>
+				<a href="javascript:;" class="table-cell scr-item"><span>注意事项</span></a>
+			</div>
+			<!--  -->
+			<div class="filter-overlay"></div>
+			<div class="fs13 filter-main">
+				<div class="filter-content">
+					<h3>热门城市</h3>
+					<ul class="clearfix place-list">
+						<li><a href="">南京</a></li>
+						<li><a href="">上海</a></li>
+						<li><a href="">青岛</a></li>
+						<li><a href="">上海</a></li>
+						<li><a href="">青岛</a></li>
+						<li><a href="" class="active">上海</a></li>
+						<li><a href="">青岛</a></li>
+						<li><a href="">青岛</a></li>
+						<li><a href="">上海</a></li>
+						<li><a href="">青岛</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--  -->
+		</div>
+		<div class="filter-wrap_seat"></div>
+		<script>
+		$(function() {
+			var tabTop = $(".filter-wrap").offset().top;
+			// 判断筛选的位置
+			$.filterFixed = function() {
+				var winTop = $(window).scrollTop();
+				if( winTop >= tabTop ){
+					$(".filter-wrap").addClass("filter-wrap_fixed");
+				}else{
+					$(".filter-wrap").removeClass("filter-wrap_fixed");
+				}
+			};
+			$.filterFixed();
+			$(window).scroll(function(){
+				$.filterFixed();
+				$.scrollGoto();
+			});
+			$(".filter-nav a.fn-open").each(function(index){
+				$(this).on("click",function(){
+					$(".filter-nav a").removeClass("on").eq(index).addClass("on");
+					$(".filter-wrap").addClass("filter-wrap_fixed");
+					$(".filter-overlay,.filter-main").show();
+					$(".filter-main .filter-content").hide().eq(index).slideDown();
+					$("html,body").addClass("body-hidden");
+
+				});
+			});
+			$(document).on('click', '.filter-overlay', function() {
+				$(".filter-main .filter-content").slideUp();
+				$(".filter-main,.filter-overlay").hide();
+				$(".filter-wrap").removeClass("filter-wrap_fixed");
+				$("html,body").removeClass("body-hidden");
+				$.filterFixed();
+			});
+			
+			$(document).on('click', '.scroll-tab .scr-item', function(e) {
+				e.preventDefault();
+				var _this = $(this);
+				var _index = _this.index() - 1;
+				var st = $('.scr-con').eq(_index).offset().top - 40;
+				$("html,body").stop(true).animate({
+					"scrollTop" : st
+				},function(){
+					_this.addClass("on").siblings().removeClass("on");
+				});
+			});
+			$.scrollGoto = function() {
+				if ($(document).scrollTop() > tabTop) {
+					if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+						$('.scroll-tab .scr-item:last').addClass("on").siblings().removeClass("on");
+					}else{
+						$('.scr-con').each(function(i){
+							var _this = $(this);
+							if( (_this.offset().top - $(document).scrollTop()) - 40 <= 0 ){
+								$('.scroll-tab .scr-item').eq(i).addClass("on").siblings().removeClass("on");
+							}
+						});
+					}
+				}else{
+					$('.scroll-tab .scr-item').removeClass("on");
+				}
+			};
+
+		});
+		</script>
+	<!--下拉结束-->
+		
+		
+		
+		<div class="teacher m-list-flex scr-con">
+			<div class="pic-view">
+				<img src="images/head.png" alt="" class="imgm"/>
+			</div>
+			<div class="m-cell-bd">
+				<h3 class="single-line">1226期</h3>
+				<p>一周4课时</p>
+				<p><span>12月26日-12月29日</span> ¥799（上限5人）</p>
+			</div>
+			<a href="">报名</a>
+		</div>
+		<ul class="course-intro">
+			<li class="scr-con">
+				<h2><i class="i1"></i>课程介绍</h2>
+				<div style="padding-left:25px;padding-bottom:25px;">
+					<div class="des">阳澄湖费尔蒙邀请刘一帆先生，打造坐落于清新秀丽的阳湖生态公园内的度假酒店。天蝎座的他十分喜爱与大自然别是水亲近，各种水上运动也是他的业余强项。</div>
+					<div class="course-img-box pic-view">
+						<img src="images/course-img.jpg" alt=""  class="imgm"/>
+					</div>
+				</div>
+				<div class="suit-people clearfix">
+					<h6>适用人群</h6>
+					<div class="suit-intro">阳澄湖费尔蒙邀请刘一帆先生，打造坐落于清新秀丽的阳湖生态公园内的度假酒店。天蝎座的他十分喜爱与大自然别是水亲近，各种水上运动也是他的业余强项。</div>
+					<a href="javascript:;" class="down-more"></a>
+				</div>
+			</li>
+			<script>
+				$(function (){
+					$(document).on('click', '.down-more', function(event) {
+						$(this).hide();
+						$('.suit-intro').addClass('show');
+					});
+				});
+		</script>
+			
+			<li class="scr-con">
+				<h2 class="single-line"><i class="i5"></i><span>注意事项</span></h2>
+				<ol style="padding-left:25px;padding-bottom:20px;">
+					<li>1.本店提供更衣室、储物室（需自带锁具</li>
+					<li>2.课程开始前6个小时取消预约，不支持退款 重要：成功预约即表示已预约并同意《健身平台注意事项及免责声明》</li>
+				</ol>
+				
+			</li>
+			
+			<li>
+				<h2 class="single-line"><i class="i7"></i><span>课程步骤</span></h2>
+				<ol style="padding-left:25px;padding-bottom:20px;line-height: 2;">
+					<li>第一节课：阳湖生态公园清蒸蟹</li>   
+					<li>第二节课：手工甜品制作材料准备 </li>
+					<li>第三节课：快手西餐晚宴美食</li>
+					<li>第四节课：阳湖生态公园清蒸蟹</li>
+					<li>第五节:快手西餐晚宴美食</li>
+					<li>第六节课：手工甜品制作材料准备</li>
+				</ol>
+			</li>
+			<li>
+				<h2 class="single-line"><i class="i8"></i><span>FAQ</span></h2>
+				<ol style="padding-left:25px;line-height: 2;" class="FAQ">
+					<li class="bb">
+						<h4>1、如何查看门店喝课程表？</h4>
+						<p>点击导航栏中“预约”-“课程”按城市取悦、课程类别选 择课程；或者直接查看门店课表。费用见课程介绍。</p>
+					</li>
+					<li>
+						<h4>2、如何查看门店喝课程表？</h4>
+						<p>点击导航栏中“预约”-“课程”按城市取悦、课程类别选 择课程；或者直接查看门店课表。费用见课程介绍。</p>
+					</li>
+				</ol>
+			</li>
+		</ul>
+	</section>
+	<!-- main end -->
+	<a href="javascript:;"  class="foot_fixed to-order">新的一期上架时提醒我</a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</section>
+<!-- wrap end -->
+
+
+
+
+<!-- jquery-weui插件 -->
+<script src="weui/js/jquery-weui.min.js"></script>
+<!-- 通用js -->
+<script src="js/functions.js"></script>
+
+</body>
+</html>

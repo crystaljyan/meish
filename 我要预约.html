@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta name="renderer" content="webkit">
+	<title>index</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link href="">
+	<link rel="stylesheet" href="weui/lib/weui.min.css" />
+	<link rel="stylesheet" href="weui/css/jquery-weui.min.css" />
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="weui/lib/jquery-2.1.4.js"></script>
+	<!--[if lt IE 9 ]>
+	<script src="js/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+<section class="wrap">
+	<div class="foot_fixed table food-fixed">
+		<a href="javascript:;" class="table-cell">课程</a>
+		<a href="javascript:;" class="table-cell  active">我的预约</a>
+		<a href="javascript:;" class="table-cell">会员卡</a>
+	</div>
+	<!-- 底部悬浮 end -->
+	<section class="main">
+		<div class="book-top table">
+			<a href="" class="table-cell">
+				<p>2</p>
+				<h2>学会的美食/道</h2>
+			</a>
+			<a href="" class="table-cell">
+				<p>0</p>
+				<h2>累计制作/分钟</h2>
+			</a>
+		</div>
+		<ul class="cook-status mb">
+			<li class="m-list-flex">
+				<div class="pic-view">
+					<img src="images/pri-img.png" alt="" class="imgm"/>
+				</div>
+				<div class="cook-status-det m-cell-bd">
+					<div class="status">进行中</div>
+					<h3 class="single-line">onecook美食制作大师课程</h3>
+					<p><i>11月20日 </i><i> 星期四 </i><i> 10:30-11:30</i></p>
+				</div>
+				<i class="down"></i>
+				<a href="javascript:;" class="del-left"><i><img src="images/del.png" alt="" class="imgm"/></i>删除</a>
+			</li>
+			<li class="m-list-flex">
+				<div class="pic-view">
+					<img src="images/pri-img2.png" alt="" class="imgm"/>
+				</div>
+				<div class="cook-status-det m-cell-bd">
+					<div class="status  active">已取消</div>
+					<h3 class="single-line">onecook美食制作大师课程</h3>
+					<p><i>11月20日 </i><i> 星期四 </i><i> 10:30-11:30</i></p>
+				</div>
+				<i class="down"></i>
+				<a href="javascript:;" class="del-left"><i><img src="images/del.png" alt="" class="imgm"/></i>删除</a>
+			</li>
+			<li class="m-list-flex">
+				<div class="pic-view">
+					<img src="images/pri-img3.png" alt="" class="imgm"/>
+				</div>
+				<div class="cook-status-det m-cell-bd">
+					<div class="status">进行中</div>
+					<h3 class="single-line">onecook美食制作大师课程</h3>
+					<p><i>11月20日 </i><i> 星期四 </i><i> 10:30-11:30</i></p>
+				</div>
+				<i class="down"></i>
+				<a href="javascript:;" class="del-left"><i><img src="images/del.png" alt="" class="imgm"/></i>删除</a>
+			</li>
+			<li class="m-list-flex">
+				<div class="pic-view">
+					<img src="images/pri-img4.png" alt="" class="imgm"/>
+				</div>
+				<div class="cook-status-det m-cell-bd">
+					<div class="status">进行中</div>
+					<h3 class="single-line">onecook美食制作大师课程</h3>
+					<p><i>11月20日 </i><i> 星期四 </i><i> 10:30-11:30</i></p>
+				</div>
+				<i class="down"></i>
+				<a href="javascript:;" class="del-left"><i><img src="images/del.png" alt="" class="imgm"/></i>删除</a>
+			</li>
+		</ul>
+	<div class="bg-under"></div>
+	</section>
+	<!-- main end -->
+
+</section>
+<!-- wrap end -->
+
+
+
+
+<script type="text/javascript">
+	$(function(){
+			$(document).on('touchstart', 'body', function(e) {
+				// e.preventDefault();
+				startX = e.originalEvent.changedTouches[0].pageX,
+				startY = e.originalEvent.changedTouches[0].pageY;
+			});
+			$(document).on('touchend', '.cook-status li', function(e) {
+				// e.preventDefault();
+				moveEndX = e.originalEvent.changedTouches[0].pageX,
+				moveEndY = e.originalEvent.changedTouches[0].pageY,
+				X = moveEndX - startX,
+				Y = moveEndY - startY;
+				//左滑
+				var _this = $(e.target);
+				if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+					parent = _this.parents('.m-list-flex');
+					parent.addClass('trans');
+				}else if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+					parent = _this.parents('.m-list-flex');
+					parent.removeClass('trans');
+				}
+			});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- jquery-weui插件 -->
+<script src="weui/js/jquery-weui.min.js"></script>
+<!-- 通用js -->
+<script src="js/functions.js"></script>
+
+</body>
+</html>

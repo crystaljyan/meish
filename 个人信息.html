@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta name="renderer" content="webkit">
+	<title>index</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link href="">
+	<link rel="stylesheet" href="weui/lib/weui.min.css" />
+	<link rel="stylesheet" href="weui/css/jquery-weui.min.css" />
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="weui/lib/jquery-2.1.4.js"></script>
+	<!--[if lt IE 9 ]>
+	<script src="js/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+<section class="wrap">
+	<section class="main">
+		<h2 class="personal-info-title">请填写个人资料</h2>
+		<ul class="personal-info">	
+				<li class="m-list-flex">
+					<h4>性别</h4>
+					<div class="m-cell-bd">
+						<input name="" type="text" class="form-unify" placeholder="男>" id="sex">
+					</div>
+				</li>
+				<li class="m-list-flex">
+					<h4>生日</h4>
+					<div class="m-cell-bd">
+						<input name="" type="text" class="form-unify " placeholder="点击填写" id="birthday">
+					</div>
+				</li>
+				<li class="m-list-flex">
+					<h4>身高</h4>
+					<div class="m-cell-bd">
+						<input name="" type="text" class="form-unify" placeholder="点击填写" id="height">
+					</div>
+				</li>
+				<li class="m-list-flex">
+					<h4>体重 </h4>
+					<div class="m-cell-bd">
+						<input name="" type="text" class="form-unify" placeholder="点击填写" id="weight">
+					</div>
+				</li>
+		</ul>
+		<p class="tip-notice">注：若需要再次修改，可在公众号回复[个人资料]</p>
+		
+		<a href="" class="cancel-pre imm-fixed">点击保存</a>
+		<div class="bg-under"></div>
+	</section>
+	<!-- main end -->
+
+</section>
+<!-- wrap end -->
+<script src="weui/lib/fastclick.js"></script>
+<script src="weui/js/jquery-weui.min.js"></script>
+<!-- 通用js -->
+<script src="js/functions.js"></script>
+
+<script>
+      $("#sex").picker({
+        title: "选择性别",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['男','女']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          console.log("close");
+        }
+      });
+      $("#height").picker({
+        title: "选择身高",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['160cm','161cm','162cm','163cm','164cm','165cm','166cm','167cm','168cm','169cm','170cm']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          console.log("close");
+        }
+      });
+      $("#weight").picker({
+        title: "选择体重",
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['56kg','57kg','58kg','59kg','60kg','61kg']
+          }
+        ],
+        onChange: function(p, v, dv) {
+          console.log(p, v, dv);
+        },
+        onClose: function(p, v, d) {
+          console.log("close");
+        }
+      });
+//    $("#birthday").datetimePicker({
+//      times: function () {
+//        return [
+//          {
+//            values: ['', '']
+//          }
+//        ];
+//      },
+// 		title: "选择出生日期",
+//      onChange: function (picker, values, displayValues) {
+//        console.log(values);
+//      }
+//    });
+      
+      
+        $("#birthday").calendar({
+        onChange: function (p, values, displayValues) {
+          console.log(values, displayValues);
+        }
+      });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

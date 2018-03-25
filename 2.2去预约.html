@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta name="renderer" content="webkit">
+	<title>index</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link href="">
+	<link rel="stylesheet" href="weui/lib/weui.min.css" />
+	<link rel="stylesheet" href="weui/css/jquery-weui.min.css" />
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="weui/lib/jquery-2.1.4.js"></script>
+	<!--[if lt IE 9 ]>
+	<script src="js/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+<section class="wrap">
+	<section class="main">
+		<div class="confirm-msg-wrap">
+			<ul class="confirm-msg">	
+				<li><h2>请确定订单信息</h2></li>
+				<li class="m-list-flex">
+					<h4>课程</h4>
+					<p class="m-cell-bd single-line">onecook美食制作顶级大师课程</p>
+				</li>
+				<li class="m-list-flex">
+					<h4>时间</h4>
+					<p class="m-cell-bd">09月25日 18:35-19:35</p>
+				</li>
+				<li class="m-list-flex">
+					<h4>地点</h4>
+					<p class="m-cell-bd single-line">上海市徐汇区陆家浜路807号五洲国际大厦</p>
+				</li>
+				<li class="m-list-flex clearfix">
+					<h4>人数</h4>
+					<div class="m-cell-bd clearfix">
+						<a href="javascript:;" class="fr">3人</a>
+						<a href="javascript:;" class="fr">2人</a>
+						<a href="javascript:;" class="fr active">1人</a>
+					</div>
+					
+				</li>
+				<li class="m-list-flex">
+					<h4>总价</h4>
+					<p class="m-cell-bd">89元</p>
+				</li>
+			</ul>
+			<ul class="confirm-msg last">	
+				<li class="m-list-flex">
+					<h4>优惠卡折扣价</h4>
+					<p class="m-cell-bd">尚未开通 ></p>
+				</li>
+				<li class="m-list-flex">
+					<h4 style="width: 80px;">代金券</h4>
+					<!--<p class="m-cell-bd" id="popShow">0张可用 ></p>-->
+					<input name="" type="text" class="tr form-unify" placeholder="0张可用 >" value="" id="popShow" readonly>
+				</li>
+				<li class="m-list-flex">
+					<h4>还需支付</h4>
+					<p class="m-cell-bd">80元</p>
+				</li>
+			</ul>
+			<p class="notice-warm">温馨提示：开始时间前6个小时取消，支持全额退款，开始时间 前6个小时取消预约，不支持退款。</p>
+		</div>
+		<a href="javascript:;"  class="foot_fixed to-order">提交订单，微信支付</a>
+		<div class="bg-under"></div>
+	</section>
+	<!-- main end -->
+
+</section>
+<!-- wrap end -->
+
+<script>
+	$(function(){
+		// 配送方式弹窗 - 模板
+		var temp =  '<div class="bgf bt xilu_Popup">'+
+					'	<div class="ptb10 tc fs15 col3">代金券种类</div>'+
+					'	<div class=" fs14 col6">'+
+					'		<label class="m-choose" for="pop1">'+
+					'			<input type="radio" class="weui-check" name="radio_pop" id="pop1">'+
+					'			<span class="fs12 col3 choose-main">满100减50</span>'+
+					'		</label>'+
+					'		<label class="m-choose" for="pop2">'+
+					'			<input type="radio" class="weui-check" name="radio_pop" id="pop2">'+
+					'			<span class="fs12 col3 choose-main">满50减20</span>'+
+					'		</label>'+
+					'	</div>'+
+					'	<a href="javascript:;" class="bg_own btn-block close">关闭</a>'+
+					'</div>';
+		$(document).on('focus mousedown','#popShow',function(e) {
+			e.preventDefault();
+			$.openPop();
+		});
+		$(document).on('click','.xilu_Mask,.xilu_Popup .close',function() {
+			$.closePop();
+		});
+		// 配送方式弹窗 - 展开
+		$.openPop = function() {
+			var mask = $("<div class='xilu_Mask'></div>").appendTo(document.body);
+			mask.show();
+			var dialog = $(temp).appendTo(document.body);
+			dialog.show();
+			mask.addClass("xilu_Mask_visible");
+			dialog.addClass("xilu_Popup_visible");
+			return dialog;
+		}
+		// 配送方式弹窗 - 关闭
+		$.closePop = function() {
+			$(".xilu_Mask_visible").removeClass("xilu_Mask_visible").transitionEnd(function() {
+				$(this).remove();
+			});
+			$(".xilu_Popup_visible").removeClass("xilu_Popup_visible").transitionEnd(function() {
+				$(this).remove();
+			});
+		};
+
+	});
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- jquery-weui插件 -->
+<script src="weui/js/jquery-weui.min.js"></script>
+<!-- 通用js -->
+<script src="js/functions.js"></script>
+
+</body>
+</html>
